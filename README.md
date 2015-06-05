@@ -8,6 +8,20 @@ Currently added comics are
 + Garfield
 + Dilbert
 + Peanuts
++ Hagar The Horrible
++ Dennis The Menace
++ Archie
++ Pickles
++ Beetle Bailey
++ Blondie
++ Wizard of Id
++ Rugrats
++ Zits
++ Intelligent Life
++ Bizarro
++ Marvin
+
+More will be added soon.....
 
 Procedure for Installation
 --------------------------

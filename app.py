@@ -14,9 +14,9 @@ app = Flask(__name__)
 cron = Scheduler()
 cron.start()
 
-@cron.interval_schedule(seconds = 120)  #change it to 30 seconds on local system while testing
+@cron.interval_schedule(seconds = 180)  #change it to 30 seconds on local system while testing
 def job_function():
-    for comicName in ['garfield','dilbert','peanuts','hagar the horrible','dennis the menace','archie','pickles']:
+    for comicName in ['garfield','dilbert','peanuts','hagar the horrible','dennis the menace','archie','pickles','beetle bailey','blondie','wizard of id','rugrats','zits','intelligent life','bizarro','marvin']:
         if comicName == 'garfield':
             comicHTML = lxml.html.document_fromstring(requests.get("http://garfield.com/").content)
             img_src = comicHTML.xpath('//*[@id="home_comic"]/img/@src')[0]
@@ -73,6 +73,62 @@ def job_function():
 
         if comicName == "pickles":
             comicHTML = lxml.html.document_fromstring(requests.get("http://www.arcamax.com/thefunnies/pickles/").content)
+            img_src = comicHTML.xpath('//*[@id="comic-zoom"]/@src')[0]
+        #    print "Case 6 Successful!"
+            comicJSON[comicName] = "http://www.arcamax.com"+img_src
+        #    print comicJSON[comicName]
+
+        if comicName == "beetle bailey":
+            comicHTML = lxml.html.document_fromstring(requests.get("http://www.arcamax.com/thefunnies/beetlebailey/").content)
+            img_src = comicHTML.xpath('//*[@id="comic-zoom"]/@src')[0]
+        #    print "Case 6 Successful!"
+            comicJSON[comicName] = "http://www.arcamax.com"+img_src
+        #    print comicJSON[comicName]
+
+        if comicName == "blondie":
+            comicHTML = lxml.html.document_fromstring(requests.get("http://www.arcamax.com/thefunnies/blondie/").content)
+            img_src = comicHTML.xpath('//*[@id="comic-zoom"]/@src')[0]
+        #    print "Case 6 Successful!"
+            comicJSON[comicName] = "http://www.arcamax.com"+img_src
+        #    print comicJSON[comicName]
+
+        if comicName == "wizard of id":
+            comicHTML = lxml.html.document_fromstring(requests.get("http://www.arcamax.com/thefunnies/wizardofid/").content)
+            img_src = comicHTML.xpath('//*[@id="comic-zoom"]/@src')[0]
+        #    print "Case 6 Successful!"
+            comicJSON[comicName] = "http://www.arcamax.com"+img_src
+        #    print comicJSON[comicName]
+
+        if comicName == "rugrats":
+            comicHTML = lxml.html.document_fromstring(requests.get("http://www.arcamax.com/thefunnies/rugrats/").content)
+            img_src = comicHTML.xpath('//*[@id="comic-zoom"]/@src')[0]
+        #    print "Case 6 Successful!"
+            comicJSON[comicName] = "http://www.arcamax.com"+img_src
+        #    print comicJSON[comicName]
+
+        if comicName == "zits":
+            comicHTML = lxml.html.document_fromstring(requests.get("http://www.arcamax.com/thefunnies/zits/").content)
+            img_src = comicHTML.xpath('//*[@id="comic-zoom"]/@src')[0]
+        #    print "Case 6 Successful!"
+            comicJSON[comicName] = "http://www.arcamax.com"+img_src
+        #    print comicJSON[comicName]
+
+        if comicName == "intelligent life":
+            comicHTML = lxml.html.document_fromstring(requests.get("http://www.arcamax.com/thefunnies/intelligentlife/").content)
+            img_src = comicHTML.xpath('//*[@id="comic-zoom"]/@src')[0]
+        #    print "Case 6 Successful!"
+            comicJSON[comicName] = "http://www.arcamax.com"+img_src
+        #    print comicJSON[comicName]
+
+        if comicName == "bizarro":
+            comicHTML = lxml.html.document_fromstring(requests.get("http://www.arcamax.com/thefunnies/bizarro/").content)
+            img_src = comicHTML.xpath('//*[@id="comic-zoom"]/@src')[0]
+        #    print "Case 6 Successful!"
+            comicJSON[comicName] = "http://www.arcamax.com"+img_src
+        #    print comicJSON[comicName]
+
+        if comicName == "marvin":
+            comicHTML = lxml.html.document_fromstring(requests.get("http://www.arcamax.com/thefunnies/marvin/").content)
             img_src = comicHTML.xpath('//*[@id="comic-zoom"]/@src')[0]
         #    print "Case 6 Successful!"
             comicJSON[comicName] = "http://www.arcamax.com"+img_src
