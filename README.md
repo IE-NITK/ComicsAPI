@@ -19,7 +19,7 @@ Install Flask by running command:
 
 Go inside the folder of the API and create a Virtual Environment by using this command:
 
-    virtualenv flask;flask/bin/pip install flask
+    virtualenv flask
     
 Install Flask into it by running:
 
@@ -36,3 +36,5 @@ Then execute it by running:
 Install the necessary modules using PIP after logging onto the Flask in Virtual Environment by
 
     source flask/bin/activate
+
+The API is running. The link is [here](http://comic-relief.herokuapp.com/getComicLinks)

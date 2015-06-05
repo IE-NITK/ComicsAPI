@@ -10,13 +10,11 @@ from apscheduler.scheduler import Scheduler
 
 comicJSON = {}
 app = Flask(__name__)
-
-#Explicitly kick off the background thread
-cron = Scheduler(daemon=True)
+#Start CRON Job
+cron = Scheduler()
 cron.start()
 
-
-@cron.interval_schedule(seconds=120)
+@cron.interval_schedule(hours = 24)  #change it to 30 seconds on local system while testing
 def job_function():
     for comicName in ['garfield','dilbert','peanuts']:
         if comicName == 'garfield':
