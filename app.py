@@ -15,7 +15,7 @@ cron = Scheduler(daemon=True)
 cron.start()
 
 
-@cron.interval_schedule(seconds=30)
+@cron.interval_schedule(seconds=120)
 def job_function():
     for comicName in ['garfield','dilbert','peanuts']:
         if comicName == 'garfield':
@@ -58,4 +58,4 @@ def get_tasks():
     return jsonify(comicJSON)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=80,debug=True)
