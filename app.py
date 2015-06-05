@@ -47,7 +47,10 @@ def job_function():
         
         if comicName == "peanuts":
         #    print "Case 4 Successful!"
-            comicJSON[comicName] = "http://www.peanuts.com/wp-content/comic-strip/color-low-resolution/desktop/2015/daily/pe_c"+(date.today() - timedelta(2)).strftime('%y%m%d')+".jpg"
+            comicHTML = lxml.html.document_fromstring(requests.get("http://www.arcamax.com/thefunnies/peanuts/").content)
+            img_src = comicHTML.xpath('//*[@id="comic-zoom"]/@src')[0]
+        #    print "Case 4 Successful!"
+            comicJSON[comicName] = "http://www.arcamax.com"+img_src
 
         if comicName == "hagar the horrible":
             comicHTML = lxml.html.document_fromstring(requests.get("http://www.arcamax.com/thefunnies/hagarthehorrible/").content)
