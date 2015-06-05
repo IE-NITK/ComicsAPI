@@ -1,1 +1,1 @@
-web: virtualenv flask;flask/bin/pip install flask;./app.py
+web: python app.py
