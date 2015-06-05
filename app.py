@@ -16,7 +16,7 @@ cron.start()
 
 @cron.interval_schedule(seconds = 120)  #change it to 30 seconds on local system while testing
 def job_function():
-    for comicName in ['garfield','dilbert','peanuts','hagar the horrible','dennis the menace']:
+    for comicName in ['garfield','dilbert','peanuts','hagar the horrible','dennis the menace','archie','pickles']:
         if comicName == 'garfield':
             comicHTML = lxml.html.document_fromstring(requests.get("http://garfield.com/").content)
             img_src = comicHTML.xpath('//*[@id="home_comic"]/img/@src')[0]
@@ -61,6 +61,19 @@ def job_function():
         #    print "Case 5 Successful!"
             comicJSON[comicName] = "http://www.arcamax.com"+img_src
 
+        if comicName == "archie":
+            comicHTML = lxml.html.document_fromstring(requests.get("http://www.arcamax.com/thefunnies/archie/").content)
+            img_src = comicHTML.xpath('//*[@id="comic-zoom"]/@src')[0]
+        #    print "Case 5 Successful!"
+            comicJSON[comicName] = "http://www.arcamax.com"+img_src
+        #    print comicJSON[comicName]
+
+        if comicName == "pickles":
+            comicHTML = lxml.html.document_fromstring(requests.get("http://www.arcamax.com/thefunnies/pickles/").content)
+            img_src = comicHTML.xpath('//*[@id="comic-zoom"]/@src')[0]
+        #    print "Case 6 Successful!"
+            comicJSON[comicName] = "http://www.arcamax.com"+img_src
+        #    print comicJSON[comicName]
 
 
 atexit.register(lambda: cron.shutdown(wait=False))
