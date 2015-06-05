@@ -16,7 +16,7 @@ cron.start()
 
 @cron.interval_schedule(seconds = 120)  #change it to 30 seconds on local system while testing
 def job_function():
-    for comicName in ['garfield','dilbert','peanuts','hagar the horrible']:
+    for comicName in ['garfield','dilbert','peanuts','hagar the horrible','dennis the menace']:
         if comicName == 'garfield':
             comicHTML = lxml.html.document_fromstring(requests.get("http://garfield.com/").content)
             img_src = comicHTML.xpath('//*[@id="home_comic"]/img/@src')[0]
@@ -46,13 +46,19 @@ def job_function():
 
         
         if comicName == "peanuts":
-            #print "Case 4 Successful!"
+        #    print "Case 4 Successful!"
             comicJSON[comicName] = "http://www.peanuts.com/wp-content/comic-strip/color-low-resolution/desktop/2015/daily/pe_c"+(date.today() - timedelta(2)).strftime('%y%m%d')+".jpg"
 
         if comicName == "hagar the horrible":
             comicHTML = lxml.html.document_fromstring(requests.get("http://www.arcamax.com/thefunnies/hagarthehorrible/").content)
             img_src = comicHTML.xpath('//*[@id="comic-zoom"]/@src')[0]
-            print "Case 4 Successful!"
+        #    print "Case 4 Successful!"
+            comicJSON[comicName] = "http://www.arcamax.com"+img_src
+
+        if comicName == "dennis the menace":
+            comicHTML = lxml.html.document_fromstring(requests.get("http://www.arcamax.com/thefunnies/dennisthemenace/").content)
+            img_src = comicHTML.xpath('//*[@id="comic-zoom"]/@src')[0]
+        #    print "Case 5 Successful!"
             comicJSON[comicName] = "http://www.arcamax.com"+img_src
 
 
