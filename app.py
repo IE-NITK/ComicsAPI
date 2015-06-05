@@ -3,6 +3,7 @@ import atexit
 import requests
 import datetime
 import lxml.html
+import os
 from flask import Flask, jsonify
 from datetime import date, timedelta
 from apscheduler.scheduler import Scheduler
