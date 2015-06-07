@@ -1,6 +1,8 @@
 Comics API
 ==========
 
+[![Join the chat at https://gitter.im/IE-NITK/ComicsAPI](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/IE-NITK/ComicsAPI?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This is an API which will be used as backend for DuckDuckGo Instant Answers for Comic Strips
 
 Currently added comics are
